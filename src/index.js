@@ -2,8 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 
 import './App.scss'
-
-const App = () => <span className='lnr lnr-clock' />
+import App from './App.jsx'
 
 render(
   <App />,
