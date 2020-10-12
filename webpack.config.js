@@ -2,6 +2,8 @@ const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
+require("dotenv").config();
+
 const APP_DIR = path.join(__dirname, "src");
 
 const plugins = [
@@ -10,8 +12,16 @@ const plugins = [
   }),
   new CleanWebpackPlugin(),
 ];
+const { PORT: port, NODE_ENV: mode } = process.env;
+
+const devServer = {
+  port,
+  open: true,
+};
 
 module.exports = {
+  mode,
+  devServer,
   plugins,
   resolve: {
     extensions: [".jsx", ".js"],
